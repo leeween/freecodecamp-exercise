@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Repeat a string repeat a string</title>
+</head>
+<body>
+	<script>
+		function repeatStringNumTimes(str, num) {
+			var newarr = [];
+			for(var i=0; i<num; i++) {
+				newarr.push(str);
+			}
+			return newarr.join("");
+		}
+
+		repeatStringNumTimes("abc", 3);
+	</script>
+</body>
+</html>

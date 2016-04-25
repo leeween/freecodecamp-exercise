@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Confirm the Ending</title>
+</head>
+<body>
+	<script>
+		function confirmEnding(str, target) {
+			// var arr = str.split(" ");
+			// if(arr.length == 1) {
+			// 	return target == arr[0].charAt(arr[0].length-1);
+			// }else if(target.length == arr[arr.length-1].length) {
+			// 	return target == arr[arr.length-1];
+			// }else {
+			// 	return target == arr[arr.length-1].substr( arr[arr.length-1].length-target.length)
+			// }
+
+			return str.substr(-target.length) === target;
+		}
+
+		confirmEnding("He has to give me a new name", "me");
+		confirmEnding("Bastian", "n");
+	</script>
+</body>
+</html>
