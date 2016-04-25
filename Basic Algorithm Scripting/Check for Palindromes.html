@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Check for Palindromes</title>
+</head>
+<body>
+	<script>
+		function palindrome(str) {
+			var newstr = str.split("").reverse().join("").replace(/[\W_]/g,"").toLowerCase();
+			str = str.replace(/[\W_]/g,"").toLowerCase();
+		    return(newstr == str);
+		}
+
+
+palindrome("A man, a plan, a canal. Panama")
+	</script>
+</body>
+</html>
