@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Find the Longest Word in a String</title>
+</head>
+<body>
+	<script>
+		// function findLongestWord(str) {
+		// 	var newstr = str.split(" ");
+		// 	var arr = [];
+		// 	for(var i=0; i<newstr.length; i++) {
+		// 		arr.push(newstr[i].length);  			
+		// 	}
+		// 	arr.sort(compare);
+		// 	return arr[arr.length-1];
+		// }
+		// function compare(val1, val2) {
+		// 	return val1 - val2;
+		// }
+		function findLongestWord(str) {
+		    var newstr = str.split(" ");
+		    var max = 0;
+		    for(var i=0; i<newstr.length; i++) {
+		        if(newstr[i].length > max) {
+		            max = newstr[i].length;
+		        }
+		    }
+		    return max;
+		}
+		findLongestWord("The quick brown fox jumped over the lazy dog");
+
+	</script>
+</body>
+</html>
