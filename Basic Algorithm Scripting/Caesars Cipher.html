@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Caesars Cipher</title>
+</head>
+<body>
+	<script>
+		function rot13(str) { // LBH QVQ VG!
+			var arr = [];
+			var result = new String();
+			for(var i=0; i<str.length; i++) {
+				var x = str.charCodeAt(i);
+				if(x<65 || x>90) {
+					result += String.fromCharCode(x);
+				}else if(x < 78){
+					result += String.fromCharCode(x + 13);
+				}else {
+					result += String.fromCharCode(x - 13);
+				}
+			}
+			return result;
+		}
+
+		// Change the inputs below to test
+		rot13("SERR PBQR PNZC");
+
+	</script>
+</body>
+</html>

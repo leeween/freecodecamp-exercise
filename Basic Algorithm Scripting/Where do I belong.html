@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Where do I belong</title>
+</head>
+<body>
+	<script>
+		function getIndexToIns(arr, num) {
+			arr.push(num);
+			arr.sort(compare);
+			// for (var i=0; i<arr.length; i++) {
+			// 	if(arr[i] == num) {
+			// 		return i;
+			// 	}
+			// }
+			return arr.indexOf(num);
+		}
+		function compare(val1, val2) {
+			return val1 - val2;
+		}
+		getIndexToIns([40, 60], 50);
+		getIndexToIns([5, 3, 20, 3], 5);
+		getIndexToIns([2, 5, 10], 15)
+	</script>
+</body>
+</html>
