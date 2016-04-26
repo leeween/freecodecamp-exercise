@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Falsy Bouncer</title>
+</head>
+<body>
+	<script>
+		function bouncer(arr) {		
+  			return arr.filter(Boolean);
+		}
+
+		bouncer([false, null, 0, NaN, undefined, ""])
+
+	</script>
+</body>
+</html>
