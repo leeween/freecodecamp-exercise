@@ -14,7 +14,7 @@ function pairElement(str) {
 	  	secArr[i].push(another);
   	}
 	console.log(secArr);
-  	return str;
+  	return secArr;
 }
 
 pairElement("GCG");
