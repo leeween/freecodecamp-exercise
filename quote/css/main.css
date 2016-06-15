@@ -1,0 +1,50 @@
+html, body {
+    margin: 0;
+    padding: 0;
+}
+button:focus {
+    outline-style: inherit;
+}
+body {
+    background-color: #ccc;
+    font-family: "Microsoft YaHei UI";
+}
+.wrap {
+    position: relative;
+    width: 500px;
+    margin: 10% auto auto;
+    padding: 40px 50px;
+    border-radius: 3px;
+    background-color: #fff;
+}
+.quote {
+    font-size: 20px;
+}
+.name {
+    text-align: right;
+    font-size: 16px;
+}
+a {
+    display: inline-block;
+    padding: 5px;
+    background-color: #ccc;
+    height: 26px;
+    line-height: 26px;
+    border-radius: 5px;
+    color: #fff;
+    text-decoration: none;
+}
+.change {
+    float: right;
+    padding: 5px;
+    background-color: #ccc;
+    height: 36px;
+    line-height: 26px;
+    border-radius: 5px;
+    color: #fff;
+    border: none;
+    font-family: "Microsoft YaHei UI";
+}
+.change:hover {
+    cursor: pointer;
+}
