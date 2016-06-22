@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Pomodoro Clock</title>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+    <header>Pomodoro Clock</header>
+    <main>
+        <section class="control">
+            <div class="breaktime">
+                <p>Break Length</p>
+                <button class="minus" data-target="breaktime-length">-</button>
+                <span class="breaktime-length">5</span>
+                <button class="plus" data-target="breaktime-length">+</button>
+            </div>
+            <div class="worktime">
+                <p>Work Length</p>
+                <button class="minus" data-target="worktime-length">-</button>
+                <span class="worktime-length">25</span>
+                <button class="plus" data-target="worktime-length">+</button>
+            </div>
+        </section>
+        <section class="content work">
+            <div class="clock">
+                <p class="todo">work</p>
+                <p id="time">25</p>
+            </div>
+            <!--<div class="tips">-->
+                <!--认真工作吧!-->
+            <!--</div>-->
+        </section>
+        <section class="pomodoro-wrap">
+            <span class="pomodoro"></span>
+            <span class="pomodoro"></span>
+            <span class="pomodoro"></span>
+            <span class="pomodoro"></span>
+        </section>
+    </main>
+    <script src="js/main.js"></script>
+</body>
+</html>
