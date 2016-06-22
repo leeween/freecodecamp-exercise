@@ -18,7 +18,6 @@ var toSec = function(str){
 };
 // 转化为时间格式的字符串展示
 var toTime = function(timer) {
-    timer = data.workTime;
     var minutes = Math.floor(timer / 60),
         seconds = Math.floor(timer % 60);
     minutes = minutes >= 10 ? minutes : '0'+minutes;
@@ -34,6 +33,13 @@ var data = {
     status: 0  //当前状态，0表示工作，1表示休息
 };
 
+var reset = function() {
+    data.breakTime = 300;
+    data.workTime = 1500;
+    $('.todo').innerText = 'work';
+    $('.worktime-length').innerText = 25;
+    $('.breaktime-length').innerText = 5;
+}
 //计时器
 var timer = null,
     flag = false;
@@ -42,14 +48,31 @@ var countTime = function() {
     timer = setInterval(function() {
         flag = true;
         if(data.workTime <= 0) {
-            data.workTime = data.breakTime;
+            if(data.breakTime <= 0) {
+                return;
+            }
+            data.status = 1;
+            data.breakTime--;
             $('.todo').innerText = 'break';
+            $('.tips').innerText = '休息一会吧！';
             document.getElementById("time").innerHTML = toTime(data.breakTime);
         }else {
+            data.status = 0;
             data.workTime--;
+            $('.tips').innerText = '认真工作吧！';
             document.getElementById("time").innerHTML = toTime(data.workTime);
         }
     },1000);
+    if(data.breakTime === 0 && data.workTime === 0) {
+        var span = document.createElement('span');
+        span.className = 'pomodoro';
+        $('.pomodoro-wrap').appendChild(span);
+        reset();
+    }
+    if(document.getElementsByClassName('pomodoro').length === 4) {
+        alert('恭喜您，今天获得4个番茄！');
+        $('.pomodoro-wrap').innerHTML = '';
+    }
 };
 
 $('.clock').onclick = function() {
@@ -66,31 +89,33 @@ $('.control').addEventListener('click', function(e) {
         return;
     }
     var _target = e.target.getAttribute(['data-target']);
-    if(_target === 'worktime-length' && e.target.className === 'plus') {
+    if(_target === 'worktime-length' && e.target.className === 'plus' && data.status === 0) {
         if($('.' + _target).innerText >= 60) {
             return;
         }
         $('.' + _target).innerText++;
         $('#time').innerText = $('.' + _target).innerText;
         data.workTime = toSec($('.' + _target).innerText);
-    }else if(_target === 'worktime-length' && e.target.className === 'minus') {
+    }else if(_target === 'worktime-length' && e.target.className === 'minus' && data.status === 0) {
         if($('.' + _target).innerText <= 5) {
             return;
         }
         $('.' + _target).innerText--;
         $('#time').innerText = $('.' + _target).innerText;
         data.workTime = toSec($('.' + _target).innerText);
-    }else if(_target === 'breaktime-length' && e.target.className === 'plus') {
+    }else if(_target === 'breaktime-length' && e.target.className === 'plus' && data.status === 1) {
         if($('.' + _target).innerText >= 30) {
             return;
         }
         $('.' + _target).innerText++;
+        $('#time').innerText = $('.' + _target).innerText;
         data.breakTime = toSec($('.' + _target).innerText);
-    }else {
+    }else if(_target === 'breaktime-length' && e.target.className === 'minus' && data.status === 1) {
         if($('.' + _target).innerText <= 0) {
             return;
         }
         $('.' + _target).innerText--;
+        $('#time').innerText = $('.' + _target).innerText;
         data.breakTime = toSec($('.' + _target).innerText);
     }
 });
