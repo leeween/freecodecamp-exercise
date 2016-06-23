@@ -1,0 +1,42 @@
+html, body {
+    margin: 0;
+    padding: 0;
+}
+.stage {
+    position: relative;
+    height: 500px;
+    margin: 10px;
+    border: 1px solid #ccc;
+    overflow: hidden;
+}
+.control {
+    margin: 50px auto;
+    text-align: center;
+}
+input {
+    display: block;
+    width: 300px;
+    height: 36px;
+    margin: 50px auto 0;
+    padding-left: 12px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #73b9a2;
+}
+input:focus {
+    outline-style: inherit;
+}
+
+button {
+    padding: 10px 20px;
+    color: #fff;
+    background-color: darkcyan;
+    border: none;
+    cursor: pointer;
+}
+button:hover {
+    background-color: #73b9a2;
+}
+button:focus {
+    outline-style: inherit;
+}
